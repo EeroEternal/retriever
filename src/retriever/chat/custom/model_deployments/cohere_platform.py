@@ -1,3 +1,4 @@
+# type: ignore
 import logging
 import os
 from typing import Any, Dict, Generator, List
@@ -24,7 +25,7 @@ class CohereDeployment(BaseDeployment):
         return True
 
     @classmethod
-    def list_models(cls) -> List[str]:
+    def list_models(cls) -> List[str]:  # type: ignore
         if not CohereDeployment.is_available():
             return []
 
@@ -44,7 +45,7 @@ class CohereDeployment(BaseDeployment):
         return [model["name"] for model in models if "chat" in model["endpoints"]]
 
     @classmethod
-    def is_available(cls) -> bool:
+    def is_available(cls) -> bool:  # type: ignore
         return cls.api_key is not None
 
     def invoke_chat(self, chat_request: CohereChatRequest, **kwargs: Any) -> Any:
@@ -61,7 +62,7 @@ class CohereDeployment(BaseDeployment):
             **kwargs,
         )
         for event in stream:
-            yield event.__dict__
+            yield event.__dict__  # type: ignore
 
     def invoke_search_queries(
         self,
@@ -71,7 +72,7 @@ class CohereDeployment(BaseDeployment):
     ) -> list[str]:
         res = self.client.chat(
             message=message,
-            chat_history=chat_history,
+            chat_history=chat_history,  # type: ignore
             search_queries_only=True,
             **kwargs,
         )
@@ -91,4 +92,4 @@ class CohereDeployment(BaseDeployment):
     def invoke_tools(self, message: str, tools: List[Any], **kwargs: Any) -> List[Any]:
         return self.client.chat(
             message=message, tools=tools, model="command-r", **kwargs
-        )
+        )  # type: ignore

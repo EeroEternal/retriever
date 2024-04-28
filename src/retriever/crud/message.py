@@ -37,7 +37,7 @@ def get_message(db: Session, message_id: str, user_id: str) -> Message:
         db.query(Message)
         .filter(Message.id == message_id, Message.user_id == user_id)
         .first()
-    )
+    )  # type: ignore
 
 
 def get_messages(

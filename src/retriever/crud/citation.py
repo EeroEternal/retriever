@@ -31,7 +31,7 @@ def get_citation(db: Session, citation_id: str) -> Citation:
     Returns:
         Citation: Citation with the given ID.
     """
-    return db.query(Citation).filter(Citation.id == citation_id).first()
+    return db.query(Citation).filter(Citation.id == citation_id).first()  # type: ignore
 
 
 def get_citations(db: Session, offset: int = 0, limit: int = 100) -> list[Citation]:

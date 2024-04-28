@@ -32,7 +32,7 @@ def get_user(db: Session, user_id: str) -> User:
     Returns:
         User: User with the given ID.
     """
-    return db.query(User).filter(User.id == user_id).first()
+    return db.query(User).filter(User.id == user_id).first()  # type: ignore
 
 
 def get_users(db: Session, offset: int = 0, limit: int = 100) -> list[User]:

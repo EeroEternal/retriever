@@ -81,6 +81,11 @@ class StreamCitationGeneration(ChatResponse):
         title="Citations for the chat message.", default=[]
     )
 
+    # 似乎有个Bug,缺少 is_finished。在这里增加一下
+    is_finished: bool = Field(
+        title="Denotes whether or not the chat stream has finished.", default=False
+    )
+
 
 class StreamQueryGeneration(ChatResponse):
     """Stream query generation event."""
@@ -263,7 +268,7 @@ class BaseChatRequest(BaseModel):
             List of custom or managed tools to use for the response.
             If passing in managed tools, you only need to provide the name of the tool.
             If passing in custom tools, you need to provide the name, description, and optionally parameter defintions of the tool.
-            Passing a mix of custom and managed tools is not supported. 
+            Passing a mix of custom and managed tools is not supported.
 
             Managed Tools Examples:
             tools=[
@@ -302,7 +307,7 @@ class BaseChatRequest(BaseModel):
                             "type": "int",
                             "required": true
                         }
-                    }  
+                    }
                 },
                 {
                     "name": "joke_generator",

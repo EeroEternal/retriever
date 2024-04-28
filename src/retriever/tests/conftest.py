@@ -10,7 +10,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from retriever.chat.custom.model_deployments.base import BaseDeployment
-from retriever.config.deployments import AVAILABLE_MODEL_DEPLOYMENTS, ModelDeploymentName
+from retriever.config.deployments import (
+    AVAILABLE_MODEL_DEPLOYMENTS,
+    ModelDeploymentName,
+)
 from retriever.main import app, create_app
 from retriever.models import get_session
 from retriever.schemas.deployment import Deployment

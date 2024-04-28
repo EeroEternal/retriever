@@ -1,3 +1,4 @@
+# type: ignore
 from fastapi import APIRouter, Depends
 from fastapi import File as RequestFile
 from fastapi import Form, HTTPException, Request

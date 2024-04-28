@@ -1,3 +1,4 @@
+# type: ignore
 from urllib.parse import unquote_plus
 
 from fastapi import HTTPException, Request

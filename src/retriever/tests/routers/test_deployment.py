@@ -4,7 +4,10 @@ from unittest.mock import Mock, patch
 import pytest
 from fastapi.testclient import TestClient
 
-from retriever.config.deployments import AVAILABLE_MODEL_DEPLOYMENTS, ModelDeploymentName
+from retriever.config.deployments import (
+    AVAILABLE_MODEL_DEPLOYMENTS,
+    ModelDeploymentName,
+)
 
 
 def test_list_deployments(

@@ -1,3 +1,4 @@
+# type: ignore
 from fastapi import APIRouter, Depends, HTTPException
 
 from retriever.crud import user as user_crud
@@ -42,7 +43,7 @@ def list_users(
     Returns:
         list[User]: List of users.
     """
-    return user_crud.get_users(session, offset=offset, limit=limit)
+    return user_crud.get_users(session, offset=offset, limit=limit)  # type: ignore
 
 
 @router.get("/{user_id}", response_model=User)

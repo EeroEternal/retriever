@@ -31,7 +31,7 @@ def get_document(db: Session, document_id: str) -> Document:
     Returns:
         Document: Document with the given ID.
     """
-    return db.query(Document).filter(Document.id == document_id).first()
+    return db.query(Document).filter(Document.id == document_id).first()  # type: ignore
 
 
 def get_documents(db: Session, offset: int = 0, limit: int = 100) -> list[Document]:

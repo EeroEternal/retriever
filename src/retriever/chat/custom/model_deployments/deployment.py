@@ -1,5 +1,8 @@
 from retriever.chat.custom.model_deployments.base import BaseDeployment
-from retriever.config.deployments import AVAILABLE_MODEL_DEPLOYMENTS, ModelDeploymentName
+from retriever.config.deployments import (
+    AVAILABLE_MODEL_DEPLOYMENTS,
+    ModelDeploymentName,
+)
 
 
 def get_deployment(deployment_name) -> BaseDeployment:

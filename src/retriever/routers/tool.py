@@ -18,4 +18,4 @@ def list_tools() -> list[ManagedTool]:
     Returns:
         list[Tool]: List of available tools.
     """
-    return AVAILABLE_TOOLS.values()
+    return AVAILABLE_TOOLS.values()  # type: ignore

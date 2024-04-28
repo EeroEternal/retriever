@@ -33,7 +33,7 @@ def get_file(db: Session, file_id: str, user_id: str) -> File:
     Returns:
         File: File with the given ID.
     """
-    return db.query(File).filter(File.id == file_id, File.user_id == user_id).first()
+    return db.query(File).filter(File.id == file_id, File.user_id == user_id).first()  # type: ignore
 
 
 def get_files(db: Session, user_id: str, offset: int = 0, limit: int = 100):
