@@ -81,3 +81,23 @@ echo "VIRTUAL_ENV_PATH=/Users/lipi/Library/Caches/pypoetry/virtualenvs/retriever
   "venv": "retriever-JKRSsXxj-py3.11"
 }
 ```
+
+## Alembic Migration
+
+- Create a new database migration script
+
+```bash
+alembic -c src/retriever/alembic.ini revision --autogenerate
+```
+
+Dot not forgot grant all privileges to the user
+
+```base
+GRANT ALL PRIVILEGES ON database retriever to rag;
+```
+
+- Apply the migration
+
+```bash
+alembic -c src/retriever/alembic.ini upgrade head
+```
